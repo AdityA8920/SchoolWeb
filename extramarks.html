@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Academy School Punjab – Your Gateway to Success</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background: #0d1b3e; overflow-x: hidden; }
+
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(28px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes fadeIn   { from { opacity:0 } to { opacity:1 } }
+    @keyframes pulse    { 0%,100% { transform:scale(1) } 50% { transform:scale(1.06) } }
+    @keyframes shimmer  { 0% { background-position:-200% center } 100% { background-position:200% center } }
+    @keyframes floatDot { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-14px) } }
+    @keyframes slideIn  { from { opacity:0; transform:translateY(-12px) } to { opacity:1; transform:translateY(0) } }
+    @keyframes rainbow  { 0% { background-position:0% 50% } 50% { background-position:100% 50% } 100% { background-position:0% 50% } }
+    @keyframes borderPulse { 0%,100% { box-shadow:0 4px 15px rgba(83,74,183,0.35) } 50% { box-shadow:0 4px 28px rgba(212,83,126,0.6) } }
+    @keyframes zoomIn   { from { opacity:0; transform:scale(1.08) } to { opacity:1; transform:scale(1) } }
+
+    /* HEADER */
+    header { background:#0d1b3e; border-bottom:1px solid rgba(255,255,255,0.1); padding:.85rem 2rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; animation:fadeIn .5s ease; }
+    .logo { font-size:1.1rem; font-weight:700; color:white; text-decoration:none; display:flex; align-items:center; gap:10px; }
+    .logo-icon { width:36px; height:36px; background:#d4af37; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:18px; animation:pulse 3s ease infinite; }
+    nav ul { list-style:none; display:flex; gap:4px; }
+    nav a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:.85rem; padding:.45rem .9rem; border-radius:7px; transition:all .25s; border:1px solid transparent; }
+    nav ul li:nth-child(1) a:hover { background:#534AB7; color:white; border-color:#534AB7; }
+    nav ul li:nth-child(2) a:hover { background:#0F6E56; color:white; border-color:#0F6E56; }
+    nav ul li:nth-child(3) a:hover { background:#BA7517; color:white; border-color:#BA7517; }
+    nav ul li:nth-child(4) a:hover { background:#993556; color:white; border-color:#993556; }
+
+    /* HERO */
+    .hero { position:relative; overflow:hidden; min-height:580px; display:flex; align-items:center; justify-content:center; }
+    .hero-img { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&q=80') center/cover no-repeat; animation:zoomIn 1.2s ease both; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(13,27,62,0.88),rgba(83,74,183,0.65)); }
+    .dot { position:absolute; border-radius:50%; background:rgba(212,175,55,0.15); z-index:1; }
+    .dot:nth-child(1) { width:200px; height:200px; top:-50px; left:-50px; animation:floatDot 6s ease infinite; }
+    .dot:nth-child(2) { width:130px; height:130px; bottom:30px; right:70px; animation:floatDot 8s ease infinite 1s; }
+    .dot:nth-child(3) { width:70px; height:70px; top:40%; left:18%; animation:floatDot 5s ease infinite 2s; }
+    .hero-content { position:relative; z-index:2; text-align:center; max-width:700px; padding:2rem; }
+    .hero-badge { display:inline-block; background:rgba(212,175,55,0.2); color:#d4af37; font-size:.75rem; padding:.35rem .95rem; border-radius:20px; border:1px solid rgba(212,175,55,0.5); margin-bottom:1.5rem; animation:fadeUp .6s ease both; }
+    .hero h1 { font-size:2.6rem; font-weight:800; color:white; line-height:1.2; margin-bottom:.9rem; animation:fadeUp .6s ease .15s both; }
+    .hero h1 .gold { background:linear-gradient(90deg,#d4af37,#f0d54a,#d4af37); background-size:200%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmer 3s linear infinite; }
+    .hero p { color:rgba(255,255,255,0.75); font-size:1.05rem; margin-bottom:2.2rem; animation:fadeUp .6s ease .3s both; }
+    .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeUp .6s ease .45s both; }
+
+    /* BUTTONS */
+    .btn-rainbow { background:linear-gradient(135deg,#534AB7,#D4537E,#D85A30,#BA7517); background-size:300% 300%; animation:rainbow 4s ease infinite, borderPulse 3s ease infinite; color:white; border:none; padding:.8rem 2rem; border-radius:9px; font-weight:700; font-size:.95rem; cursor:pointer; transition:transform .2s; }
+    .btn-rainbow:hover { transform:translateY(-3px) scale(1.04); }
+    .btn-rainbow:active { transform:scale(0.97); }
+    .btn-teal { background:#0F6E56; color:white; border:none; padding:.8rem 2rem; border-radius:9px; font-weight:700; font-size:.95rem; cursor:pointer; transition:all .25s; box-shadow:0 4px 14px rgba(15,110,86,0.4); }
+    .btn-teal:hover { background:#085041; transform:translateY(-2px); }
+    .welcome-reveal { margin-top:1.75rem; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.45); border-radius:12px; padding:1rem 1.5rem; color:#f0d54a; font-size:1rem; font-weight:600; display:none; animation:slideIn .4s ease; }
+
+    /* STATS */
+    .stats-row { background:#111e40; display:grid; grid-template-columns:repeat(3,1fr); }
+    .stat-cell { text-align:center; padding:1.75rem 1rem; border-right:1px solid rgba(255,255,255,0.07); }
+    .stat-cell:last-child { border-right:none; }
+    .stat-num { font-size:2rem; font-weight:800; color:#d4af37; display:block; }
+    .stat-label { font-size:.8rem; color:rgba(255,255,255,0.5); margin-top:.3rem; }
+
+    /* SECTIONS */
+    section { padding:4rem 2rem; background:#fff; }
+    section:nth-child(even) { background:#f7f8fc; }
+    .sec-tag { display:inline-block; font-size:.72rem; font-weight:700; color:#185FA5; background:#E6F1FB; padding:.28rem .8rem; border-radius:20px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.8rem; }
+    section h2 { font-size:1.7rem; font-weight:800; color:#0d1b3e; margin-bottom:1.75rem; }
+    section h2 .accent { color:#185FA5; }
+
+    /* ABOUT */
+    .about-layout { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center; }
+    .about-image-wrap { border-radius:18px; overflow:hidden; position:relative; }
+    .about-image-wrap img { width:100%; height:320px; object-fit:cover; display:block; transition:transform .5s ease; }
+    .about-image-wrap:hover img { transform:scale(1.04); }
+    .about-image-badge { position:absolute; bottom:16px; left:16px; background:rgba(13,27,62,0.85); color:white; font-size:.8rem; font-weight:600; padding:.5rem .9rem; border-radius:8px; border:1px solid rgba(212,175,55,0.4); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .about-card { background:white; border:1px solid #e8ecf4; border-radius:14px; padding:1.25rem; transition:transform .25s,box-shadow .25s; }
+    .about-card:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(13,27,62,0.1); }
+    .about-card-icon { width:38px; height:38px; border-radius:9px; background:#E6F1FB; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:.8rem; }
+    .about-card h3 { font-size:.9rem; font-weight:700; margin-bottom:.4rem; color:#0d1b3e; }
+    .about-card p  { font-size:.82rem; color:#666; line-height:1.65; }
+
+    /* GALLERY */
+    .gallery-section { padding:3rem 2rem; background:#0d1b3e; }
+    .gallery-section h2 { font-size:1.5rem; font-weight:800; color:white; margin-bottom:1.5rem; text-align:center; }
+    .gallery-section h2 .accent { color:#d4af37; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .gallery-item { border-radius:12px; overflow:hidden; position:relative; cursor:pointer; }
+    .gallery-item img { width:100%; height:160px; object-fit:cover; display:block; transition:transform .4s ease; }
+    .gallery-item:hover img { transform:scale(1.08); }
+    .g-label { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(13,27,62,0.85)); color:white; font-size:.78rem; font-weight:600; padding:.6rem .8rem; transform:translateY(100%); transition:transform .3s ease; }
+    .gallery-item:hover .g-label { transform:translateY(0); }
+
+    /* COURSES */
+    .courses-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; }
+    .course-card { background:white; border:1px solid #e8ecf4; border-radius:14px; overflow:hidden; transition:transform .3s,box-shadow .3s; }
+    .course-card:hover { transform:translateY(-6px); box-shadow:0 12px 35px rgba(13,27,62,0.12); }
+    .course-img-wrap { overflow:hidden; position:relative; }
+    .course-img { width:100%; height:140px; object-fit:cover; display:block; transition:transform .4s; }
+    .course-card:hover .course-img { transform:scale(1.06); }
+    .course-color-bar { height:4px; }
+    .blue-bar   { background:#185FA5; }
+    .teal-bar   { background:#0F6E56; }
+    .amber-bar  { background:#BA7517; }
+    .purple-bar { background:#534AB7; }
+    .course-body { padding:1.25rem; }
+    .course-icon { font-size:1.5rem; margin-bottom:.6rem; display:block; }
+    .course-card h3 { font-size:.95rem; font-weight:700; margin-bottom:.45rem; color:#0d1b3e; }
+    .course-card p  { font-size:.82rem; color:#666; line-height:1.65; margin-bottom:1rem; }
+    .course-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .pill { display:inline-block; font-size:.72rem; padding:.25rem .7rem; border-radius:20px; font-weight:600; }
+    .pill-blue   { background:#E6F1FB; color:#0C447C; }
+    .pill-teal   { background:#E1F5EE; color:#085041; }
+    .pill-amber  { background:#FAEEDA; color:#633806; }
+    .pill-purple { background:#EEEDFE; color:#3C3489; }
+    .cbtn { border:none; border-radius:7px; font-size:.8rem; font-weight:700; padding:.4rem 1rem; cursor:pointer; transition:all .2s; color:white; }
+    .cbtn:hover { transform:scale(1.06); }
+    .cbtn-blue   { background:#185FA5; } .cbtn-blue:hover   { background:#0C447C; }
+    .cbtn-teal   { background:#0F6E56; } .cbtn-teal:hover   { background:#085041; }
+    .cbtn-amber  { background:#BA7517; } .cbtn-amber:hover  { background:#854F0B; }
+    .cbtn-purple { background:#534AB7; } .cbtn-purple:hover { background:#3C3489; }
+
+    /* TESTIMONIALS */
+    .testimonials { padding:4rem 2rem; background:#0d1b3e; }
+    .testimonials h2 { font-size:1.5rem; font-weight:800; color:white; margin-bottom:1.75rem; text-align:center; }
+    .testimonials h2 .accent { color:#d4af37; }
+    .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; }
+    .testi-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:1.5rem; transition:transform .25s; }
+    .testi-card:hover { transform:translateY(-4px); }
+    .testi-avatar { width:52px; height:52px; border-radius:50%; object-fit:cover; margin-bottom:1rem; border:2px solid #d4af37; }
+    .testi-name { font-size:.88rem; font-weight:700; color:white; }
+    .testi-role { font-size:.75rem; color:rgba(255,255,255,0.5); margin-bottom:.75rem; }
+    .testi-text { font-size:.85rem; color:rgba(255,255,255,0.75); line-height:1.7; font-style:italic; }
+    .stars { color:#d4af37; font-size:.85rem; margin-bottom:.5rem; }
+
+    /* CONTACT */
+    .contact-wrap { display:grid; grid-template-columns:1fr 1.5fr; gap:2.5rem; }
+    .contact-img-wrap { border-radius:16px; overflow:hidden; margin-bottom:1.5rem; }
+    .contact-img-wrap img { width:100%; height:180px; object-fit:cover; display:block; }
+    .contact-info h3 { font-size:1.05rem; font-weight:700; margin-bottom:1.2rem; color:#0d1b3e; }
+    .info-row { display:flex; align-items:flex-start; gap:12px; margin-bottom:1.1rem; }
+    .info-icon { width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:17px; }
+    .ic-blue { background:#E6F1FB; } .ic-teal { background:#E1F5EE; } .ic-amber { background:#FAEEDA; } .ic-purple { background:#EEEDFE; }
+    .info-label { font-size:.75rem; color:#888; }
+    .info-val   { font-size:.88rem; color:#0d1b3e; font-weight:600; }
+    .form-group { margin-bottom:1rem; }
+    .form-group label { display:block; font-size:.8rem; font-weight:600; color:#555; margin-bottom:.38rem; }
+    .form-group input, .form-group textarea { width:100%; padding:.6rem .85rem; border:1.5px solid #dde3ef; border-radius:9px; font-size:.9rem; font-family:inherit; background:white; transition:border-color .2s,box-shadow .2s; }
+    .form-group input:focus, .form-group textarea:focus { outline:none; border-color:#534AB7; box-shadow:0 0 0 3px rgba(83,74,183,0.12); }
+    .form-group textarea { resize:vertical; min-height:95px; }
+    .err { color:#A32D2D; font-size:.78rem; margin-top:.25rem; display:none; animation:slideIn .3s ease; }
+    .btn-submit { width:100%; background:linear-gradient(135deg,#534AB7,#D4537E); background-size:200% 200%; animation:rainbow 5s ease infinite, borderPulse 3s ease infinite; color:white; border:none; padding:.85rem; border-radius:9px; font-size:.95rem; font-weight:700; cursor:pointer; transition:transform .2s; }
+    .btn-submit:hover { transform:translateY(-2px); }
+    .btn-submit:active { transform:scale(0.98); }
+    .success-bar { background:#E1F5EE; color:#085041; border:1px solid #9FE1CB; padding:.8rem 1rem; border-radius:9px; font-size:.88rem; margin-bottom:1rem; display:none; animation:slideIn .3s ease; }
+
+    /* FOOTER */
+    footer { background:#070f24; color:rgba(255,255,255,0.5); text-align:center; padding:2.5rem 2rem 1.5rem; }
+    .footer-top { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; text-align:left; margin-bottom:2rem; }
+    .footer-col h4 { color:white; font-size:.9rem; font-weight:700; margin-bottom:.85rem; }
+    .footer-col p, .footer-col a { font-size:.82rem; color:rgba(255,255,255,0.45); text-decoration:none; display:block; margin-bottom:.4rem; line-height:1.6; transition:color .2s; }
+    .footer-col a:hover { color:#d4af37; }
+    .footer-logo { color:white; font-weight:700; font-size:1rem; margin-bottom:.4rem; display:flex; align-items:center; gap:8px; }
+    .footer-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin:1.5rem 0 1rem; }
+    .footer-bottom { font-size:.78rem; color:rgba(255,255,255,0.3); }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:768px) {
+      .hero h1 { font-size:1.7rem; }
+      .about-layout { grid-template-columns:1fr; }
+      .contact-wrap { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:repeat(2,1fr); }
+      nav ul { gap:0; }
+      nav a { font-size:.75rem; padding:.4rem .55rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo">
+    <div class="logo-icon">🎓</div>
+    Summer Academy Punjab
+  </a>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Est. 2010 &nbsp;·&nbsp; Punjab, India</div>
+    <h1>Welcome to <span class="gold">Summer Academy</span> School</h1>
+    <p>Your gateway to excellence in education, character, and growth</p>
+    <div class="hero-btns">
+      <button class="btn-rainbow" id="wBtn">✨ Show Welcome Message</button>
+      <button class="btn-teal" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">📚 Explore Courses</button>
+    </div>
+    <div class="welcome-reveal" id="wMsg">
+      🎉 Welcome to our school! We're so excited to have you here. Let's learn, grow, and succeed together!
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-cell"><span class="stat-num" id="s1">0+</span><div class="stat-label">Students enrolled</div></div>
+  <div class="stat-cell"><span class="stat-num" id="s2">0+</span><div class="stat-label">Expert teachers</div></div>
+  <div class="stat-cell"><span class="stat-num" id="s3">0+</span><div class="stat-label">Years of excellence</div></div>
+</div>
+
+<section id="about" class="reveal">
+  <div class="sec-tag">About us</div>
+  <h2>Building <span class="accent">tomorrow's leaders</span> today</h2>
+  <div class="about-layout">
+    <div>
+      <div class="about-image-wrap">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&q=80" alt="Students in classroom">
+        <div class="about-image-badge">🏆 Ranked #1 in Punjab</div>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card"><div class="about-card-icon">🏫</div><h3>Our Mission</h3><p>Providing quality education and fostering well-rounded students committed to academic excellence.</p></div>
+      <div class="about-card"><div class="about-card-icon">👩‍🏫</div><h3>Expert Faculty</h3><p>Passionate teachers and mentors who create a supportive environment where every student thrives.</p></div>
+      <div class="about-card"><div class="about-card-icon">🔬</div><h3>Modern Facilities</h3><p>State-of-the-art labs and classrooms equipped with modern tools for future-ready learning.</p></div>
+      <div class="about-card"><div class="about-card-icon">🌟</div><h3>Our Values</h3><p>Integrity, discipline, and social responsibility at the heart of everything we do.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-section reveal">
+  <h2>Life at <span class="accent">Summer Academy</span></h2>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" alt="Students studying">
+      <div class="g-label">📚 Library &amp; Study</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=500&q=80" alt="Science lab">
+      <div class="g-label">🔬 Science Lab</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1598618443855-232ee0f819f6?w=500&q=80" alt="Art class">
+      <div class="g-label">🎨 Art &amp; Creativity</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Sports">
+      <div class="g-label">⚽ Sports &amp; Fitness</div>
+    </div>
+  </div>
+</div>
+
+<section id="courses" class="reveal">
+  <div class="sec-tag">Academics</div>
+  <h2>Our <span class="accent">Courses</span></h2>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-img-wrap">
+        <img class="course-img" src="https://images.unsplash.com/photo-1532094349884-543559c5f756?w=500&q=80" alt="Science">
+        <div class="course-color-bar blue-bar"></div>
+      </div>
+      <div class="course-body">
+        <span class="course-icon">🔬</span>
+        <h3>Science &amp; Technology</h3>
+        <p>Hands-on experiments and modern labs covering physics, chemistry, and biology.</p>
+        <div class="course-footer"><span class="pill pill-blue">Grades 6–12</span><button class="cbtn cbtn-blue" onclick="alert('More info coming soon for Science & Technology!')">Learn More</button></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-img-wrap">
+        <img class="course-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&q=80" alt="Math">
+        <div class="course-color-bar teal-bar"></div>
+      </div>
+      <div class="course-body">
+        <span class="course-icon">🔢</span>
+        <h3>Mathematics &amp; Logic</h3>
+        <p>Arithmetic, algebra, geometry, and advanced problem-solving skills for all levels.</p>
+        <div class="course-footer"><span class="pill pill-teal">Grades 1–12</span><button class="cbtn cbtn-teal" onclick="alert('More info coming soon for Mathematics!')">Learn More</button></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-img-wrap">
+        <img class="course-img" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Languages">
+        <div class="course-color-bar amber-bar"></div>
+      </div>
+      <div class="course-body">
+        <span class="course-icon">📖</span>
+        <h3>Languages &amp; Literature</h3>
+        <p>Master English, Hindi, and Punjabi. Reading, writing, and communication skills.</p>
+        <div class="course-footer"><span class="pill pill-amber">All Grades</span><button class="cbtn cbtn-amber" onclick="alert('More info coming soon for Languages!')">Learn More</button></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-img-wrap">
+        <img class="course-img" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80" alt="Arts">
+        <div class="course-color-bar purple-bar"></div>
+      </div>
+      <div class="course-body">
+        <span class="course-icon">🎨</span>
+        <h3>Arts &amp; Creativity</h3>
+        <p>Drawing, painting, music, and dance. Develop creative thinking and self-expression.</p>
+        <div class="course-footer"><span class="pill pill-purple">Grades 1–8</span><button class="cbtn cbtn-purple" onclick="alert('More info coming soon for Arts!')">Learn More</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="testimonials reveal">
+  <h2>What our <span class="accent">community</span> says</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <img class="testi-avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=100&q=80" alt="Priya Sharma">
+      <div class="testi-name">Priya Sharma</div>
+      <div class="testi-role">Parent of Grade 8 student</div>
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Summer Academy has transformed my daughter's love for learning. The teachers are incredibly dedicated and the facilities are world-class."</div>
+    </div>
+    <div class="testi-card">
+      <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Arjun Singh">
+      <div class="testi-name">Arjun Singh</div>
+      <div class="testi-role">Alumni, Class of 2023</div>
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"The science labs and project-based learning here gave me the confidence to pursue engineering. Best school in Punjab!"</div>
+    </div>
+    <div class="testi-card">
+      <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Ms Kavita">
+      <div class="testi-name">Ms. Kavita Rao</div>
+      <div class="testi-role">Mathematics Teacher</div>
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Teaching at Summer Academy is a joy. The students are motivated and the school truly supports innovative teaching methods."</div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" class="reveal">
+  <div class="sec-tag">Contact</div>
+  <h2>Get in <span class="accent">Touch</span></h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="contact-img-wrap">
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="Contact us">
+      </div>
+      <h3>We'd love to hear from you</h3>
+      <div class="info-row"><div class="info-icon ic-blue">📍</div><div><div class="info-label">Address</div><div class="info-val">123 Education Street, Punjab</div></div></div>
+      <div class="info-row"><div class="info-icon ic-teal">📞</div><div><div class="info-label">Phone</div><div class="info-val">(555) 123-4567</div></div></div>
+      <div class="info-row"><div class="info-icon ic-amber">📧</div><div><div class="info-label">Email</div><div class="info-val">info@summeracademy.edu</div></div></div>
+      <div class="info-row"><div class="info-icon ic-purple">🕐</div><div><div class="info-label">Office hours</div><div class="info-val">Mon–Sat, 8am – 4pm</div></div></div>
+    </div>
+    <div>
+      <div class="success-bar" id="successBar">✅ Message sent! We'll get back to you within 24 hours.</div>
+      <div class="form-group"><label>Full Name *</label><input type="text" id="fname" placeholder="Enter your full name"><div class="err" id="nameErr">Please enter your name</div></div>
+      <div class="form-group"><label>Email Address *</label><input type="email" id="femail" placeholder="your@email.com"><div class="err" id="emailErr">Please enter a valid email</div></div>
+      <div class="form-group"><label>Message *</label><textarea id="fmsg" placeholder="Write your message here…"></textarea><div class="err" id="msgErr">Please enter a message</div></div>
+      <button class="btn-submit" id="submitBtn">🚀 Send Message</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-col">
+      <div class="footer-logo">🎓 Summer Academy</div>
+      <p>Empowering students with knowledge, values, and skills for a brighter future in Punjab and beyond.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <a href="#courses">Science &amp; Technology</a>
+      <a href="#courses">Mathematics &amp; Logic</a>
+      <a href="#courses">Languages &amp; Literature</a>
+      <a href="#courses">Arts &amp; Creativity</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <p>📍 123 Education Street, Punjab</p>
+      <p>📞 (555) 123-4567</p>
+      <p>📧 info@summeracademy.edu</p>
+      <p>🕐 Mon–Sat, 8am – 4pm</p>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">© 2026 Summer Academy School Punjab. All rights reserved.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var t = document.querySelector(this.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  var wShown = false;
+  document.getElementById('wBtn').addEventListener('click', function() {
+    wShown = !wShown;
+    var m = document.getElementById('wMsg');
+    m.style.display = wShown ? 'block' : 'none';
+    this.textContent = wShown ? '🙈 Hide Message' : '✨ Show Welcome Message';
+  });
+
+  function animateCount(id, target, duration) {
+    var el = document.getElementById(id), start = 0, step = target / 60;
+    var timer = setInterval(function() {
+      start = Math.min(start + step, target);
+      el.textContent = Math.round(start) + '+';
+      if (start >= target) clearInterval(timer);
+    }, duration / 60);
+  }
+  setTimeout(function() {
+    animateCount('s1', 1200, 1400);
+    animateCount('s2', 48, 1100);
+    animateCount('s3', 15, 900);
+  }, 500);
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+  document.getElementById('submitBtn').addEventListener('click', function() {
+    var n = document.getElementById('fname').value.trim();
+    var em = document.getElementById('femail').value.trim();
+    var ms = document.getElementById('fmsg').value.trim();
+    ['nameErr','emailErr','msgErr'].forEach(function(id) { document.getElementById(id).style.display = 'none'; });
+    document.getElementById('successBar').style.display = 'none';
+    var ok = true;
+    if (!n)  { document.getElementById('nameErr').style.display = 'block'; ok = false; }
+    if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { document.getElementById('emailErr').style.display = 'block'; ok = false; }
+    if (!ms) { document.getElementById('msgErr').style.display = 'block'; ok = false; }
+    if (ok) {
+      document.getElementById('successBar').style.display = 'block';
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fmsg').value = '';
+      setTimeout(function() { document.getElementById('successBar').style.display = 'none'; }, 5000);
+    }
+  });
+</script>
+</body>
+</html>
